@@ -59,48 +59,8 @@
   </footer>
 </body>
 </html>
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
-  background: #f4f4f4;
-  color: #333;
-}
 
-header {
-  background: #333;
-  color: #fff;
-  padding: 1rem 0;
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 960px;
-  margin: auto;
-  padding: 0 1rem;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-}
-
-nav a {
-  color: #fff;
-  text-decoration: none;
-}
-
-section {
-  max-width: 960px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-}
-
-footer {
+  
   text-align: center;
   padding: 1rem;
   background: #333;

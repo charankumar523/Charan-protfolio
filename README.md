@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Akash Perni Portfolio Website
 
 ## Live Demo
@@ -21,3 +22,9 @@ This repository contains the source code for my portfolio website. The goal is t
 - Smooth scrolling navigation & “back-to-top” functionality  
 
 ---
+=======
+# Charan-protfolio
+
+  
+      
+>>>>>>> ceb853daabc7e49dd754aa33791795752023388e

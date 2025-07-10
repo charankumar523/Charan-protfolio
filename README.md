@@ -1,10 +1,10 @@
 <<<<<<< HEAD
-# Akash Perni Portfolio Website
+# CHARAN KUMAR REDDY BUKKANA Portfolio Website
 
 ## Live Demo
 
 Explore the live site here:  
-**[akashperni.portfolio](https://akashperni.github.io/portfolio/)**
+**https://charankumar523.github.io/Charan-protfolio/**
 
 ---
 

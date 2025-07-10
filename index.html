@@ -3,361 +3,515 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charan Reddy Portfolio</title>
-    <link rel="stylesheet" href="app.css">
-    
+    <title>Charan Kumar Reddy Bukkana - Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth; /* Smooth scroll for internal links */
+            background-color: #1a202c; /* Dark background */
+            color: #e2e8f0; /* Light text color */
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #2d3748;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4a5568;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6b7280;
+        }
+        .section-padding {
+            padding: 80px 0; /* Consistent vertical padding for sections */
+        }
+        .nav-link:hover {
+            color: #63b3ed; /* Light blue on hover */
+            transform: translateY(-2px);
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        /* Gradient for buttons */
+        .btn-gradient {
+            background-image: linear-gradient(to right, #63b3ed, #4299e1);
+            transition: all 0.3s ease;
+        }
+        .btn-gradient:hover {
+            background-image: linear-gradient(to right, #4299e1, #63b3ed);
+            transform: translateY(-2px);
+        }
+        /* Keyframe animations for home section */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-down {
+            animation: fadeInDown 0.8s ease-out forwards;
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-600 { animation-delay: 0.6s; }
 
-    <!-- box icons -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-    <script src="https://unpkg.com/scrollreveal"></script>
+        /* Blob animation for background */
+        @keyframes blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .animate-blob {
+            animation: blob 7s infinite cubic-bezier(0.6, 0.01, 0.3, 0.9);
+        }
+        .animation-delay-2000 { animation-delay: 2s; }
+        .animation-delay-4000 { animation-delay: 4s; }
+    </style>
 </head>
-<body>
-    <!-- header design -->
-    <header class="header top">
-        <a href="#" class="logo">Port<span>folio.</span></a>
-        <div class="bx bx-menu" id="menu-icon"></div>
-    <nav class="navbar">
-        <a href="#home" class="active">Home</a>
-        <a href="#about">About me</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
-        <a href="#tech-stack">Tech Stack</a>
-        <a href="#portfolio">Projects</a>
-        <a href="#certifications">Certifications</a>
-        <!--a href="#contact">Resume</a-->
-    </nav>
+<body class="bg-gray-900 text-gray-200">
+
+    <!-- Header & Navigation -->
+    <header class="bg-gray-800 shadow-lg fixed w-full z-50 py-4">
+        <nav class="container mx-auto flex justify-between items-center px-6">
+            <a href="#home" class="text-3xl font-bold text-blue-400 rounded-lg p-2 hover:text-blue-300 transition-colors duration-300">Charan Bukkana</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="nav-link text-lg font-medium text-gray-300 hover:text-blue-400 transition-all duration-300 rounded-md px-3 py-2">About</a>
+                <a href="#experience" class="nav-link text-lg font-medium text-gray-300 hover:text-blue-400 transition-all duration-300 rounded-md px-3 py-2">Experience</a>
+                <a href="#skills" class="nav-link text-lg font-medium text-gray-300 hover:text-blue-400 transition-all duration-300 rounded-md px-3 py-2">Skills</a>
+                <a href="#projects" class="nav-link text-lg font-medium text-gray-300 hover:text-blue-400 transition-all duration-300 rounded-md px-3 py-2">Projects</a>
+                <a href="#certifications" class="nav-link text-lg font-medium text-gray-300 hover:text-blue-400 transition-all duration-300 rounded-md px-3 py-2">Certifications</a>
+                <a href="#contact" class="nav-link text-lg font-medium text-gray-300 hover:text-blue-400 transition-all duration-300 rounded-md px-3 py-2">Contact</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-blue-400 focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-800 px-6 pb-4">
+            <a href="#about" class="block text-lg font-medium text-gray-300 hover:text-blue-400 py-2 transition-colors duration-300 rounded-md px-3">About</a>
+            <a href="#experience" class="block text-lg font-medium text-gray-300 hover:text-blue-400 py-2 transition-colors duration-300 rounded-md px-3">Experience</a>
+            <a href="#skills" class="block text-lg font-medium text-gray-300 hover:text-blue-400 py-2 transition-colors duration-300 rounded-md px-3">Skills</a>
+            <a href="#projects" class="block text-lg font-medium text-gray-300 hover:text-blue-400 py-2 transition-colors duration-300 rounded-md px-3">Projects</a>
+            <a href="#certifications" class="block text-lg font-medium text-gray-300 hover:text-blue-400 py-2 transition-colors duration-300 rounded-md px-3">Certifications</a>
+            <a href="#contact" class="block text-lg font-medium text-gray-300 hover:text-blue-400 py-2 transition-colors duration-300 rounded-md px-3">Contact</a>
+        </div>
     </header>
 
-    <!-- home section design -->
-<section class="home" id="home">
-    <div class="home-info">
-        <div class="home-content left">
-            <h1>Hi, <br> I'm <span>Charan Kumar Reddy Bukkana</span></h1>
-            <h3 class="text-animate">I'm a <span class="multiple-text"></span></h3>
-            <p>Seeking Full-Time Opportunities in the Data Science/Engineering and Analytics Domain | MS Software Engineering @rivier | Data Analyst at rivier | Data Science Intern at Cognizant | AWS cloud intern at AICTE | Expertise in Data Science, Data Analysis, Data Engineering, ETL pipelines, ML, Deep Learning and AWS.</p>
-        </div>
-            <div class="contact-info">
-                <p>
-                Email: 
-                <a href="mailto:charankumarreddybukkana@gmail.com">charankumarreddybukkana@gmail.com</a>
-                &nbsp; | &nbsp;
-                Phone: 
-                <a href="tel:+14754392211">+1(475-439-2211)</a>
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800 text-center relative overflow-hidden pt-24">
+            <div class="relative z-10 p-8 max-w-4xl mx-auto">
+                <img src="Graduation.JPG" alt="Charan Kumar Reddy Bukkana's Profile Picture" class="rounded-full w-40 h-40 mx-auto mb-6 border-4 border-blue-400 shadow-lg object-cover">
+                <h1 class="text-5xl md:text-6xl font-extrabold text-white leading-tight mb-4 animate-fade-in-up">
+                    Hi, I'm <span class="text-blue-400">Charan Kumar Reddy Bukkana</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-8 animate-fade-in-up delay-200">
+                    A <span class="font-semibold text-blue-300">Detail-oriented and results-driven Data Analyst</span> transforming data into actionable insights.
                 </p>
+                <a href="#projects" class="inline-block btn-gradient text-white font-bold py-3 px-8 rounded-full shadow-lg text-lg transition-all duration-300 hover:scale-105">
+                    View My Work
+                </a>
             </div>
-        
-        <div class="home-sci">
-            <!-- LinkedIn -->
-            <a href="https://https://www.linkedin.com/in/charankumarreddy-bukkana-3424232a3/" target="_blank">
-                <i class="bx bxl-linkedin"></i>
-            </a>
-            <!-- GitHub -->
-            <a href="https://github.com/akashperni" target="_blank">
-                <i class='bx bxl-github'></i>
-            </a>
-        </div>
-    </div>
-
-    <div class="my-img right">
-        <img src="./assets/my-image1.jpg" alt="">
-    </div>
-</section>
-
-    <!-- about section design -->
-    <section class="about" id="about">
-        
-        <div class="about-img left">
-            <img src="./assets/me1.heic.png" alt="" class="about-img-2">
-            <span class="circle-spin"></span>
-        </div>
-
-        <div class="about-details right">
-            <h2 class="heading">About <span>Me</span></h2>
-            <div class="about-content">
-                <h3><span>Data Analyst </span>| Aspiring Data Scientist</h3>
-                <p style="text-align: justify;">
-                    Hello! I’m Akash Perni, a Graduate with a Master’s degree in Software Engineering from the University of Maryland College Park, with a strong foundation in data analytics & engineering, machine learning, ETL pipelines and AWS cloud. I’ve worked as a Data Analyst at the University of Maryland and previously interned at Cognizant, where I designed predictive models, built data pipelines, dashboards, and worked with big data tools like Spark, Kafka, and Airflow.
-                </p>
-                <p style="text-align: justify;">
-                    I’m passionate about solving real-world problems and continuously learning new tools and technologies to sharpen my analytical edge. I’m currently seeking full-time roles in data science or analytics where I can apply my skills to drive data-informed decisions and deliver business impact.
-                </p>
-                
-                <!-- <button class="btn-box btns">
-                    <a href="#" class="btn">Read More</a>
-                </button> -->
+            <!-- Background shapes for visual interest -->
+            <div class="absolute top-0 left-0 w-full h-full">
+                <div class="absolute w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob" style="top: 10%; left: 15%;"></div>
+                <div class="absolute w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000" style="top: 40%; right: 20%;"></div>
+                <div class="absolute w-64 h-64 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000" style="bottom: 10%; left: 40%;"></div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section>
-        <div class="education-column right" id="experience">
-            <h2 class="heading"><span>Experience</span></h2>
-            <div class="education-box">
-
-                <div class="education-content">
-                    <div class="content">
-                        <div class="year"><i class="bx bxs-calendar"></i>Sep, 2023 - May, 2025</div>
-                        <h3>Data Analyst - University of Maryland</h3>
+        <!-- About Section -->
+        <section id="about" class="section-padding bg-gray-800 text-gray-200">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <h2 class="text-4xl font-bold text-center text-blue-400 mb-12">About Me</h2>
+                <div class="flex flex-col md:flex-row items-center md:space-x-10">
+                    <div class="md:w-1/3 mb-8 md:mb-0">
+                        <img src="Graduation.JPG" alt="Charan Kumar Reddy Bukkana" class="rounded-lg shadow-xl border-4 border-gray-700 object-contain object-center w-full h-auto">
+                    </div>
+                    <div class="md:w-2/3 text-lg leading-relaxed">
+                        <p class="mb-4">
+                            Hello! I'm <span class="font-semibold text-blue-300">Charan Kumar Reddy Bukkana</span>, a detail-oriented and results-driven Data Analyst with a Master’s in Computer Information Systems from Rivier University and a Bachelor’s in Electronics and Communication.
+                        </p>
                         <p>
-                            <ul>
-                                <li>Performed exploratory data analysis (EDA) and data preprocessing on multiple projects, identifying patterns, anomalies, and optimizing data quality for predictive modeling.</li>
-                                <li>Collaborated with a team on the Traffic Flow Optimization with Airflow, and Kafka project, contributing to the design and implementation of an ETL pipeline that processed and analyzed 500000+ real-time traffic records from multiple toll operators.</li>
-                                <li>Engineered machine learning models to analyze traffic congestion patterns, generating insights that optimized traffic light timing, leading to a 10% reduction in congestion on simulated datasets.</li>
-                            </ul>
+                            I am skilled in systems analysis, database management, and cloud computing, with hands-on experience in transforming data into actionable insights. My proficiency extends to Python, Power BI, Tableau, and SQL, which I leverage for dashboard creation, workflow automation, and trend analysis. I am adept at asking strategic questions, making data-driven decisions, and sharing insights through compelling visualizations.
+                        </p>
+                        <a href="#contact" class="inline-block mt-8 btn-gradient text-white font-bold py-2 px-6 rounded-full shadow-md text-md transition-all duration-300">
+                            Let's Connect!
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section-padding bg-gray-900 text-gray-200">
+            <div class="container mx-auto px-6 max-w-6xl">
+                <h2 class="text-4xl font-bold text-center text-blue-400 mb-12">My Experience</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- Experience Card 1: Data Analyst at Motel 6 -->
+                    <div class="card bg-gray-800 rounded-lg shadow-xl overflow-hidden transition-transform duration-300 border border-gray-700 p-6 flex flex-col items-center text-center">
+                        <img src="https://placehold.co/80x80/2d3748/a0aec0?text=Motel6" alt="Motel 6 Logo" class="w-20 h-20 object-contain mb-4 rounded-full border border-gray-600">
+                        <h3 class="text-2xl font-semibold text-white mb-2">Data Analyst</h3>
+                        <p class="text-blue-300 font-medium mb-2">Motel 6</p>
+                        <p class="text-gray-400 text-sm mb-4">Jan 2022 - Dec 2023</p>
+                        <p class="text-gray-300 text-base leading-relaxed">
+                            Spearheaded the analysis of large datasets using Python and SQL to uncover actionable insights that directly influenced business strategy. Collaborated with cross-functional teams to streamline data pipelines and developed intuitive dashboards using Power BI and Tableau to track performance metrics in real time. Identified customer behavior patterns using clustering and predictive modeling, shaping targeted marketing efforts. Automated recurring reporting tasks, increasing operational efficiency by 25%.
+                        </p>
+                    </div>
+
+                    <!-- Experience Card 2: Graduate Teaching Assistant at Rivier University -->
+                    <div class="card bg-gray-800 rounded-lg shadow-xl overflow-hidden transition-transform duration-300 border border-gray-700 p-6 flex flex-col items-center text-center">
+                        <img src="https://placehold.co/80x80/2d3748/a0aec0?text=Rivier" alt="Rivier University Logo" class="w-20 h-20 object-contain mb-4 rounded-full border border-gray-600">
+                        <h3 class="text-2xl font-semibold text-white mb-2">Graduate Teaching Assistant</h3>
+                        <p class="text-blue-300 font-medium mb-2">Rivier University</p>
+                        <p class="text-gray-400 text-sm mb-4">Sep 2021 - May 2023</p>
+                        <p class="text-gray-300 text-base leading-relaxed">
+                            Led discussions and interactive group activities for INST314, enhancing student engagement and comprehension of statistical concepts for a class of 360 students. Provided grading support, detailed feedback on 10+ assignments, projects, and exams, and guidance in R programming for statistical analysis, improving students' analytical and statistical skills.
+                        </p>
+                    </div>
+
+                    <!-- Experience Card 3: AWS Academy Graduate - Cloud Architecting -->
+                    <div class="card bg-gray-800 rounded-lg shadow-xl overflow-hidden transition-transform duration-300 border border-gray-700 p-6 flex flex-col items-center text-center">
+                        <img src="https://placehold.co/80x80/2d3748/a0aec0?text=AWS" alt="AWS Logo" class="w-20 h-20 object-contain mb-4 rounded-full border border-gray-600">
+                        <h3 class="text-2xl font-semibold text-white mb-2">AWS Academy Graduate</h3>
+                        <p class="text-blue-300 font-medium mb-2">AWS Academy</p>
+                        <p class="text-gray-400 text-sm mb-4">Issued: May 25, 2022</p>
+                        <p class="text-gray-300 text-base leading-relaxed">
+                            Completed 60 hours of coursework for the AWS Academy Cloud Architecting program, demonstrating proficiency in designing scalable, highly available, and fault-tolerant systems on AWS.
                         </p>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="education-content">
-                    <div class="content">
-                        <div class="year"><i class="bx bxs-calendar"></i>Apr, 2023 - Aug, 2023</div>
-                        <h3> Data Analyst Intern - Cognizant</h3>
-                        <p>
-                            <ul>
-                                <li>Led exploratory data analysis (EDA) on large datasets, identifying key trends, outliers, and correlations, leading to data-driven insights that improved decision-making efficiency by 20%.</li>
-                                <li>Built and deployed predictive machine learning models, optimizing loan approval project and increasing accuracy by 14%, integrating techniques from Logistic Regression, Random Forest and XGBoost.</li>
-                                <li>Designed and implemented Tableau dashboards, providing real-time insights for stakeholders and boosting data-driven decision-making by 20%. </li>
-                                </ul>
-                        </p>
+        <!-- Skills Section (updated) -->
+        <section id="skills" class="section-padding bg-gray-800 text-gray-200">
+            <div class="container mx-auto px-6 max-w-5xl">
+                <h2 class="text-4xl font-bold text-center text-blue-400 mb-12">My Skills</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                    <div class="bg-gray-900 p-6 rounded-lg shadow-lg text-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl border border-gray-700">
+                        <svg class="w-16 h-16 mx-auto mb-4 text-blue-400" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15H9v-2h2v2zm0-4H9V7h2v6zm4 0h-2V7h2v6z"></path>
+                        </svg>
+                        <h3 class="text-xl font-semibold text-white mb-2">Python</h3>
+                        <p class="text-gray-400 text-sm">Pandas, NumPy, Scikit-learn, Streamlit, Keras, Tensorflow</p>
                     </div>
-                </div>
-                <!--
-                <div class="education-content">
-                    <div class="content">
-                        <div class="year"><i class="bx bxs-calendar"></i>Aug, 2021 - Dec, 2022</div>
-                        <h3> Data Analyst UG Assistant - VVIT</h3>
-                        <p>
-                            <ul>
-                                <li>Analyzed 5,000+ student demographic and User records to help the career center better understand student engagement patterns and set data-driven goals for future program improvements.</li>
-                                <li>Developed reports, Tableau and PowerBI dashboards to visualize key trends in student engagement and course review ratings, providing insights to enhance academic programs and improve course offerings.</li>
-                                <li>Assisted faculty in analyzing data from 10+ college events, festivals, and sports activities using Excel tools like PivotTables and VLOOKUP, uncovering student participation trends and boosting engagement by 18%. </li>
-                            </p>
+                    <div class="bg-gray-900 p-6 rounded-lg shadow-lg text-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl border border-gray-700">
+                        <svg class="w-16 h-16 mx-auto mb-4 text-blue-400" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15H9v-2h2v2zm0-4H9V7h2v6zm4 0h-2V7h2v6z"></path>
+                        </svg>
+                        <h3 class="text-xl font-semibold text-white mb-2">SQL</h3>
+                        <p class="text-gray-400 text-sm">MySQL, PostgreSQL</p>
                     </div>
-                </div>
-                -->
-
-                <div class="education-content">
-                    <div class="content">
-                        <div class="year"><i class="bx bxs-calendar"></i>Mar, 2022 - May, 2022</div>
-                        <h3> AWS cloud intern - AICTE</h3>
-                        <p>
-                            <ul>
-                                <li>Deployed and managed a scalable web application by creating a MySQL RDS database with an Auto Scaling group and Application Load Balancer (ALB), optimizing EC2 instances for efficient performance, resulting in a 15% increase in uptime during peak loads.</li>
-                                <li>Improved system efficiency by implementing a LAMP stack on Amazon Linux 2 and seamlessly importing data into the RDS instance using Cloud9 IDE, enhancing data accessibility and system reliability by 10%.</li>
-                            </p>
+                    <div class="bg-gray-900 p-6 rounded-lg shadow-lg text-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl border border-gray-700">
+                        <svg class="w-16 h-16 mx-auto mb-4 text-blue-400" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15H9v-2h2v2zm0-4H9V7h2v6zm4 0h-2V7h2v6z"></path>
+                        </svg>
+                        <h3 class="text-xl font-semibold text-white mb-2">Data Visualization</h3>
+                        <p class="text-gray-400 text-sm">Power BI, Tableau, Matplotlib, Seaborn</p>
+                    </div>
+                    <div class="bg-gray-900 p-6 rounded-lg shadow-lg text-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl border border-gray-700">
+                        <svg class="w-16 h-16 mx-auto mb-4 text-blue-400" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15H9v-2h2v2zm0-4H9V7h2v6zm4 0h-2V7h2v6z"></path>
+                        </svg>
+                        <h3 class="text-xl font-semibold text-white mb-2">Cloud Computing</h3>
+                        <p class="text-gray-400 text-sm">AWS</p>
+                    </div>
+                    <div class="bg-gray-900 p-6 rounded-lg shadow-lg text-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl border border-gray-700">
+                        <svg class="w-16 h-16 mx-auto mb-4 text-blue-400" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15H9v-2h2v2zm0-4H9V7h2v6zm4 0h-2V7h2v6z"></path>
+                        </svg>
+                        <h3 class="text-xl font-semibold text-white mb-2">Version Control</h3>
+                        <p class="text-gray-400 text-sm">Git/GitHub</p>
+                    </div>
+                    <div class="bg-gray-900 p-6 rounded-lg shadow-lg text-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl border border-gray-700">
+                        <svg class="w-16 h-16 mx-auto mb-4 text-blue-400" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15H9v-2h2v2zm0-4H9V7h2v6zm4 0h-2V7h2v6z"></path>
+                        </svg>
+                        <h3 class="text-xl font-semibold text-white mb-2">Data Analysis</h3>
+                        <p class="text-gray-400 text-sm">Data Transformation, Sentiment Analysis, Time Series Analysis</p>
+                    </div>
+                    <div class="bg-gray-900 p-6 rounded-lg shadow-lg text-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl border border-gray-700">
+                        <svg class="w-16 h-16 mx-auto mb-4 text-blue-400" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15H9v-2h2v2zm0-4H9V7h2v6zm4 0h-2V7h2v6z"></path>
+                        </svg>
+                        <h3 class="text-xl font-semibold text-white mb-2">R Programming</h3>
+                        <p class="text-gray-400 text-sm">Statistical Analysis</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    </section>
+        </section>
 
-    <!-- education section design -->
-    <section class="education" id="education">
-        <div class="education-row">
-            <div class="education-column left">
-                <h2 class="heading">Education</h2>
-                <div class="education-box">
-    
-                    <div class="education-content">
-                        <div class="content">
-                            <div class="year"><i class="bx bxs-calendar"></i>2023 - 2025</div>
-                            <h3>Master of Engineering in Software (SE) - University of Maryland College Park</h3>
-                            <p>CGPA - 3.91/4</p>
-                            <p>Relevant Courses: Software engineering, Software Design and Implementation, Data Science, Analytics for Decision Support, Machine learning.</p>
+        <!-- Projects Section (remains the same) -->
+        <section id="projects" class="section-padding bg-gray-900 text-gray-200">
+            <div class="container mx-auto px-6 max-w-6xl">
+                <h2 class="text-4xl font-bold text-center text-blue-400 mb-12">My Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- Project Card 1: Crop Wise -->
+                    <div class="card bg-gray-800 rounded-lg shadow-xl overflow-hidden transition-transform duration-300 border border-gray-700">
+                        <img src="https://placehold.co/400x250/2d3748/a0aec0?text=Crop+Wise" alt="Crop Wise Project" class="w-full h-52 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-white mb-3">Crop Wise</h3>
+                            <p class="text-gray-400 mb-4">
+                                Developed a Streamlit web app integrating multiple machine learning models (Random Forest, KNN, SVC, Naive Bayes) trained on 50,000+ agricultural records to recommend optimal crops using soil and weather parameters. Achieved 91.2% accuracy.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-blue-600 text-white text-xs font-semibold px-2.5 py-0.5 rounded-full">Python</span>
+                                <span class="bg-green-600 text-white text-xs font-semibold px-2.5 py-0.5 rounded-full">Scikit-learn</span>
+                                <span class="bg-purple-600 text-white text-xs font-semibold px-2.5 py-0.5 rounded-full">Streamlit</span>
+                                <span class="bg-yellow-600 text-white text-xs font-semibold px-2.5 py-0.5 rounded-full">Machine Learning</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <a href="#" target="_blank" class="text-blue-400 hover:text-blue-300 font-medium transition-colors duration-300">
+                                    Live Demo &rarr;
+                                </a>
+                                <a href="#" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300">
+                                    GitHub
+                                </a>
+                            </div>
                         </div>
                     </div>
-    
-                    <div class="education-content">
-                        <div class="content">
-                            <div class="year"><i class="bx bxs-calendar"></i>2019 - 2023</div>
-                            <h3>B.Tech in Information Technology (IT) - VVIT</h3>
-                            <p>CGPA - 3.98/4</p>
-                            <p>Relevant Courses: Python, R, SQL, Data Science, Operating Systems, Machine Learning, DBMS, Big Data Analytics, Advanced Mathematics, Statistics.</p>
-                            <p>Achievements: Top 5% of the class, Chairman's club member, 4x Academic Excellence Award </p>
+
+                    <!-- Project Card 2: Handwritten Text Recognition -->
+                    <div class="card bg-gray-800 rounded-lg shadow-xl overflow-hidden transition-transform duration-300 border border-gray-700">
+                        <img src="https://placehold.co/400x250/2d3748/a0aec0?text=Handwritten+Text+Recognition" alt="Handwritten Text Recognition Project" class="w-full h-52 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-white mb-3">Handwritten Text Recognition</h3>
+                            <p class="text-gray-400 mb-4">
+                                Developed a CNN-based deep learning model for handwritten manuscript recognition using a dataset of 90,000+ word-level images. Achieved 93.2% character-level accuracy and reduced false positives by 15%.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-orange-600 text-white text-xs font-semibold px-2.5 py-0.5 rounded-full">Python</span>
+                                <span class="bg-cyan-600 text-white text-xs font-semibold px-2.5 py-0.5 rounded-full">Tensorflow</span>
+                                <span class="bg-red-600 text-white text-xs font-semibold px-2.5 py-0.5 rounded-full">CNN</span>
+                                <span class="bg-indigo-600 text-white text-xs font-semibold px-2.5 py-0.5 rounded-full">Keras</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <a href="#" target="_blank" class="text-blue-400 hover:text-blue-300 font-medium transition-colors duration-300">
+                                    Live Demo &rarr;
+                                </a>
+                                <a href="#" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300">
+                                    GitHub
+                                </a>
+                            </div>
                         </div>
                     </div>
-    
+                    <!-- Add more project cards as needed -->
                 </div>
             </div>
-        </div>
-    </section> 
+        </section>
 
-    
-
-
-    <!-- education section design -->
-    <!-- <section class="education" id="education">
-        <h2 class="heading top">Education</h2>
-        <div class="education-container">
-            <div class="education-box">
-                <h3>M.Sc. in Data Science - Indiana University Bloomington</h3>
-                <p>2023 - 2025</p>
-                <p>GPA: 3.73/4.0</p>
-            </div>
-            <div class="education-box">
-                <h3>B.Sc. in Data Science - NMIMS University, India</h3>
-                <p>2019 - 2023</p>
-                <p>GPA: 3.51/4.0</p>
-            </div>
-        </div>
-    </section> -->
-
-
-    <section id="tech-stack" class="tech-stack">
-        <h2 class="heading">Tech Stack</h2>
-        <div class="tech-categories">
-            <div class="tech-category">
-                <h3>Languages and Databases</h3>
-                <ul>
-                    <li>Python, R, SQL, MySQL, PostgreSQL, MySQL, MongoDB, Data Structures, Oops</li>
-                </ul>
-            </div>
-            <div class="tech-category">
-                <h3>Domain Skills</h3>
-                <ul>
-                    <li>Pandas, NumPy, Matplotlib, Plotly, Seaborn, TensorFlow, Scikit-learn, Machine Learning, CNN's, Data Extraction & Analysis</li>
-                    <li>ETL & ELT pipelines , Apache Airflow, Apache Kafka, Apache Spark, DAG, KPI’s</li> 
-                    <li>Streamlit, Sentiment Analysis, Statistical Modelling, Time Series, Recommendation systems</li>
-                </ul>
-            </div>
-            <div class="tech-category">
-                <h3>Software & Tools</h3>
-                <ul>
-                    <li>AWS, Snowflake, Tableau, PowerBI, Git/GitHub, Ms Excel, Ms Powerpoint, VS Code, Agile, Scrum </li>
-                    
-                </ul>
-            </div>
-        </div>
-    </section>
-    
-
-    <!-- portfolio section design -->
-    <section class="portfolio" id="portfolio">
-        <h2 class="heading top">Latest <span>Projects</span></h2>
-        <div class="portfolio-container bottom">
-            <div class="portfolio-box">
-                <img src="./assets/crops.png" alt="Crop recommendation system using ML">
-                <div class="portfolio-layer">
-                    <h4>Crop Wise</h4>
-                    <p> Intelligent Crop recommendation system using Machine Learning.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/akashperni/Crop_Wise" target="_blank"><i class='bx bxl-github'></i></a>
+        <!-- Certifications Section -->
+        <section id="certifications" class="section-padding bg-gray-800 text-gray-200">
+            <div class="container mx-auto px-6 max-w-6xl">
+                <h2 class="text-4xl font-bold text-center text-blue-400 mb-12">My Certifications</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- Google Data Analytics Professional Certificate -->
+                    <div class="card bg-gray-900 rounded-lg shadow-xl overflow-hidden transition-transform duration-300 border border-gray-700">
+                        <a href="https://coursera.org/verify/professional-cert/ZHONFHPSQUSW" target="_blank" class="block">
+                            <img src="https://placehold.co/400x250/2d3748/a0aec0?text=Google+Data+Analytics" alt="Google Data Analytics Professional Certificate" class="w-full h-52 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-2xl font-semibold text-white mb-2">Google Data Analytics Professional Certificate</h3>
+                                <p class="text-gray-400 text-sm">Issued by Google / Coursera</p>
+                                <p class="text-gray-400 text-sm mt-1">Issued: Jul 7, 2025</p>
+                                <p class="text-blue-400 hover:text-blue-300 font-medium mt-4">Verify Certificate &rarr;</p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Google Data Analytics Capstone: Complete a Case Study -->
+                    <div class="card bg-gray-900 rounded-lg shadow-xl overflow-hidden transition-transform duration-300 border border-gray-700">
+                        <a href="https://coursera.org/verify/C6PSFQHPYCAE" target="_blank" class="block">
+                            <img src="https://placehold.co/400x250/2d3748/a0aec0?text=Capstone+Study" alt="Google Data Analytics Capstone Certificate" class="w-full h-52 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-2xl font-semibold text-white mb-2">Google Data Analytics Capstone: Complete a Case Study</h3>
+                                <p class="text-gray-400 text-sm">Issued by Google / Coursera</p>
+                                <p class="text-gray-400 text-sm mt-1">Issued: Jul 7, 2025</p>
+                                <p class="text-blue-400 hover:text-blue-300 font-medium mt-4">Verify Certificate &rarr;</p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Foundations: Data, Data, Everywhere -->
+                    <div class="card bg-gray-900 rounded-lg shadow-xl overflow-hidden transition-transform duration-300 border border-gray-700">
+                        <a href="https://coursera.org/verify/9KX40WYATTYD" target="_blank" class="block">
+                            <img src="https://placehold.co/400x250/2d3748/a0aec0?text=Foundations+Data" alt="Foundations: Data, Data, Everywhere Certificate" class="w-full h-52 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-2xl font-semibold text-white mb-2">Foundations: Data, Data, Everywhere</h3>
+                                <p class="text-gray-400 text-sm">Issued by Google / Coursera</p>
+                                <p class="text-gray-400 text-sm mt-1">Issued: Jul 7, 2025</p>
+                                <p class="text-blue-400 hover:text-blue-300 font-medium mt-4">Verify Certificate &rarr;</p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Process Data from Dirty to Clean -->
+                    <div class="card bg-gray-900 rounded-lg shadow-xl overflow-hidden transition-transform duration-300 border border-gray-700">
+                        <a href="https://coursera.org/verify/UPQKOAIRF9ZO" target="_blank" class="block">
+                            <img src="https://placehold.co/400x250/2d3748/a0aec0?text=Process+Data" alt="Process Data from Dirty to Clean Certificate" class="w-full h-52 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-2xl font-semibold text-white mb-2">Process Data from Dirty to Clean</h3>
+                                <p class="text-gray-400 text-sm">Issued by Google / Coursera</p>
+                                <p class="text-400 text-sm mt-1">Issued: Jul 7, 2025</p>
+                                <p class="text-blue-400 hover:text-blue-300 font-medium mt-4">Verify Certificate &rarr;</p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Data Analysis with R Programming -->
+                    <div class="card bg-gray-900 rounded-lg shadow-xl overflow-hidden transition-transform duration-300 border border-gray-700">
+                        <a href="https://coursera.org/verify/JON5JBGVTOIN" target="_blank" class="block">
+                            <img src="https://placehold.co/400x250/2d3748/a0aec0?text=R+Programming" alt="Data Analysis with R Programming Certificate" class="w-full h-52 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-2xl font-semibold text-white mb-2">Data Analysis with R Programming</h3>
+                                <p class="text-gray-400 text-sm">Issued by Google / Coursera</p>
+                                <p class="text-gray-400 text-sm mt-1">Issued: Jul 7, 2025</p>
+                                <p class="text-blue-400 hover:text-blue-300 font-medium mt-4">Verify Certificate &rarr;</p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Python Basics (University of Michigan) -->
+                    <div class="card bg-gray-900 rounded-lg shadow-xl overflow-hidden transition-transform duration-300 border border-gray-700">
+                        <a href="https://coursera.org/verify/94F3JS6S2BY2" target="_blank" class="block">
+                            <img src="https://placehold.co/400x250/2d3748/a0aec0?text=Python+Basics" alt="Python Basics Certificate" class="w-full h-52 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-2xl font-semibold text-white mb-2">Python Basics</h3>
+                                <p class="text-gray-400 text-sm">Issued by University of Michigan / Coursera</p>
+                                <p class="text-gray-400 text-sm mt-1">Issued: Jun 7, 2021</p>
+                                <p class="text-blue-400 hover:text-blue-300 font-medium mt-4">Verify Certificate &rarr;</p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- C for Everyone: Structured Programming (UC Santa Cruz) -->
+                    <div class="card bg-gray-900 rounded-lg shadow-xl overflow-hidden transition-transform duration-300 border border-gray-700">
+                        <a href="https://coursera.org/verify/JCXYG5439WTK" target="_blank" class="block">
+                            <img src="https://placehold.co/400x250/2d3748/a0aec0?text=C+Programming" alt="C for Everyone: Structured Programming Certificate" class="w-full h-52 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-2xl font-semibold text-white mb-2">C for Everyone: Structured Programming</h3>
+                                <p class="text-gray-400 text-sm">Issued by University of California, Santa Cruz / Coursera</p>
+                                <p class="text-gray-400 text-sm mt-1">Issued: Apr 7, 2020</p>
+                                <p class="text-blue-400 hover:text-blue-300 font-medium mt-4">Verify Certificate &rarr;</p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- AWS Academy Graduate - AWS Academy Cloud Architecting -->
+                    <div class="card bg-gray-900 rounded-lg shadow-xl overflow-hidden transition-transform duration-300 border border-gray-700">
+                        <a href="https://www.credly.com/go/m7G1R524" target="_blank" class="block">
+                            <img src="https://placehold.co/400x250/2d3748/a0aec0?text=AWS+Architecting" alt="AWS Academy Graduate - Cloud Architecting Badge" class="w-full h-52 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-2xl font-semibold text-white mb-2">AWS Academy Graduate - Cloud Architecting</h3>
+                                <p class="text-gray-400 text-sm">Issued by AWS Academy</p>
+                                <p class="text-gray-400 text-sm mt-1">Issued: May 25, 2022</p>
+                                <p class="text-blue-400 hover:text-blue-300 font-medium mt-4">Verify Certificate &rarr;</p>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
-            <div class="portfolio-box">
-                <img src="./assets/movie.jpg" alt="Movie recommender sysyem">
-                <div class="portfolio-layer">
-                    <h4>CineMatch</h4>
-                    <p>A content filtering movie recommendation engine based on Machine Learning.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/akashperni/CineMatch" target="_blank"><i class='bx bxl-github'></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="portfolio-box">
-                <img src="./assets/chatstat.jpeg" alt="Whatsapp chat analyzer">
-                <div class="portfolio-layer">
-                    <h4>Chatstat</h4>
-                    <p>A web application that analyze your WhatsApp chat data. It provides message statistics, word clouds, emoji analysis, and more.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/akashperni/ChatStat" target="_blank"><i class='bx bxl-github'></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="portfolio-box">
-                <img src="./assets/covid.png" alt="covid 19 vaccine tracker">
-                <div class="portfolio-layer">
-                    <h4>COVID-19 Vaccine Tracker Dashboard</h4>
-                    <p> A dynamic and interactive Tableau visualization project designed to monitor and analyze the global distribution of COVID-19 vaccines.</p>
-                    <div class="project-links">
-                        <a href="https://public.tableau.com/app/profile/akash.perni/viz/Covid-19VaccineTracker_17146888140580/CovidVaccineTracker/" target="_blank"><i class='bx bxl-github'></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="portfolio-box">
-                <img src="./assets/jobs.png" alt="Software Engineering Job's Analysis">
-                <div class="portfolio-layer">
-                    <h4>USA Software Engineering Job's Analysis</h4>
-                    <p>This project explores the US Software Engineering job market by leveraging machine learning algorithms to classify job salaries based on a variety of features. </p>
-                    <div class="project-links">
-                        <a href="https://github.com/akashperni/US-software-jobs-analysis" target="_blank"><i class='bx bxl-github'></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- Add any additional projects similarly -->
-        </div>
-    </section>
-    
-        <!-- CERTIFICATIONS SECTION -->
-    <section class="certifications" id="certifications">
-        <h2 class="heading">Certifications</h2>
-        <div class="certifications-container">
-        <!-- Certificate #1 -->
-        <div class="certification-box">
-            <a href="https://www.credly.com/badges/59d73531-3782-4eef-bfd5-ba85c0e5f800/public_url" target="_blank">
-            <img src="./assets/ibm.png" alt="Certification 1 Logo">
-            <span>IBM - ETL and Data Pipelines with Shell, Airflow and Kafka</span>
-            </a>
-        </div>
-        <!-- Certificate #2 -->
-        <div class="certification-box">
-            <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/British%20Airways/NjynCWzGSaWXQCxSX_British%20Airways_FhTneDi228aFusyLA_1723317335868_completion_certificate.pdf" target="_blank">
-            <img src="./assets/bair.png" alt="Certification 2 Logo">
-            <span>British Airways - Data Science Job Simulation</span>
-            </a>
-        </div>
-        <!-- Certificate #3 -->
-        <div class="certification-box">
-            <a href="https://www.credly.com/badges/efc1c50e-b017-4b9d-a900-876e09efd25a/public_url" target="_blank">
-            <img src="./assets/aws.png" alt="Certification 3 Logo">
-            <span>AWS Academy Cloud Foundations</span>
-            </a>
-        </div>
-        <!-- Add more certificate-box blocks as needed -->
-        </div>
-    </section>
+        </section>
 
-        <footer class="footer">
-            <div class="footer-social">
-            <!-- Email icon -->
-            <a href="mailto:akashpernivc@gmail.com">
-                <i class="bx bx-envelope"></i>
-            </a>
-        
-            <!-- Phone icon -->
-            <a href="tel:+12404625014">
-                <i class="bx bx-phone-call"></i>
-            </a>
-        
-            <!-- LinkedIn icon -->
-            <a href="https://www.linkedin.com/in/akash-perni-204180197/" target="_blank">
-                <i class="bx bxl-linkedin"></i>
-            </a>
-        
-            <!-- GitHub icon -->
-            <a href="https://github.com/akashperni" target="_blank">
-                <i class="bx bxl-github"></i>
-            </a>
+        <!-- Contact Section (remains the same) -->
+        <section id="contact" class="section-padding bg-gray-900 text-gray-200">
+            <div class="container mx-auto px-6 max-w-3xl">
+                <h2 class="text-4xl font-bold text-center text-blue-400 mb-12">Get In Touch</h2>
+                <p class="text-center text-lg mb-8">
+                    I'm always open to new opportunities and collaborations. Feel free to reach out!
+                </p>
+                <form class="bg-gray-800 p-8 rounded-lg shadow-xl border border-gray-700">
+                    <div class="mb-6">
+                        <label for="name" class="block text-gray-300 text-sm font-bold mb-2">Name</label>
+                        <input type="text" id="name" name="name" class="shadow appearance-none border border-gray-700 rounded-md w-full py-3 px-4 text-gray-200 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-700" placeholder="Your Name">
+                    </div>
+                    <div class="mb-6">
+                        <label for="email" class="block text-gray-300 text-sm font-bold mb-2">Email</label>
+                        <input type="email" id="email" name="email" class="shadow appearance-none border border-gray-700 rounded-md w-full py-3 px-4 text-gray-200 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-700" value="cbukkana@rivier.edu" placeholder="your.email@example.com">
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block text-gray-300 text-sm font-bold mb-2">Message</label>
+                        <textarea id="message" name="message" rows="6" class="shadow appearance-none border border-gray-700 rounded-md w-full py-3 px-4 text-gray-200 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-700" placeholder="Your message..."></textarea>
+                    </div>
+                    <div class="flex justify-center">
+                        <button type="submit" class="btn-gradient text-white font-bold py-3 px-8 rounded-full shadow-lg text-lg transition-all duration-300 hover:scale-105">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
             </div>
-        
-            <div class="footer-copy">
-            <p>© 2025 Akash Perni. All Rights Reserved.</p>
-            </div>
-        
-            <div class="footer-top">
-            <a href="#home">
-                <i class="bx bx-up-arrow-alt"></i>
-            </a>
-            </div>
-        </footer>
-        
-    
-  
-    
+        </section>
+    </main>
 
-    <script src="app.js"></script>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-400 py-8 text-center border-t border-gray-700">
+        <div class="container mx-auto px-6">
+            <p>&copy; 2023 Charan Kumar Reddy Bukkana. All rights reserved.</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="#" target="_blank" class="hover:text-blue-400 transition-colors duration-300">LinkedIn</a>
+                <a href="#" target="_blank" class="hover:text-blue-400 transition-colors duration-300">GitHub</a>
+                <!-- You can add other social media links here if you have them, e.g., Twitter, Portfolio -->
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+                // Close mobile menu if open
+                if (document.getElementById('mobile-menu').classList.contains('flex')) {
+                    document.getElementById('mobile-menu').classList.remove('flex');
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+            mobileMenu.classList.toggle('flex-col'); // Ensure it stacks vertically
+        });
+
+        // Close mobile menu when a link inside it is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex', 'flex-col');
+            });
+        });
+
+        // Simple animation for Home section elements (optional, can be expanded with Intersection Observer)
+        document.addEventListener('DOMContentLoaded', () => {
+            const homeContent = document.querySelector('#home .relative.z-10');
+            homeContent.style.opacity = 0;
+            homeContent.style.transform = 'translateY(20px)';
+
+            setTimeout(() => {
+                homeContent.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+                homeContent.style.opacity = 1;
+                homeContent.style.transform = 'translateY(0)';
+            }, 100); // Small delay to ensure CSS is applied
+        });
+    </script>
 </body>
 </html>
